@@ -2184,7 +2184,7 @@ unless a heading is the very first element in the post content */
 .gh-content strong,
 .gh-content b {
     font-weight: normal; /* Remove bold styling */
-    background-color: var(--ghost-bold-text);
+    background-color: var(--color-bold-text);
     color: var(--color-primary-text); /* Make sure text is readable */
 }
 
