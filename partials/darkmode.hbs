@@ -1,0 +1,67 @@
+<div>
+<input type="checkbox" class="dm-checkbox" id="dm-checkbox">
+<label for="dm-checkbox" class="dm-checkbox-label">
+<ico>🌙</ico>
+<ico>☀️</ico>
+<span class="ball"></span>
+</label>
+</div>
+<script>
+const checkbox = document.getElementById("dm-checkbox")
+checkbox.addEventListener("change", () => {
+    // For Source theme, we need to toggle 'has-light-text' on HTML
+    document.querySelector('html').classList.toggle("has-light-text")
+    
+    // Also toggle the background color
+    const root = document.documentElement;
+    if (document.querySelector('html').classList.contains('has-light-text')) {
+        root.style.setProperty('--background-color', '#000000'); // Dark background
+    } else {
+        root.style.setProperty('--background-color', '#ffffff'); // Light background  
+    }
+    
+    document.cookie = `darkmode-prefered=${checkbox.checked};path=/`
+})
+
+function getCookie(cname) {
+    let name = cname + "=";
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(';');
+    for(let i = 0; i <ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "none";
+}
+
+function checkCookie() {
+    let preference = getCookie("darkmode-prefered");
+    if (preference != "none") {
+        if (preference == "true") {
+            checkbox.checked = true;
+            document.querySelector('html').classList.add("has-light-text")
+            document.documentElement.style.setProperty('--background-color', '#000000');
+        } else {
+            checkbox.checked = false;
+            document.querySelector('html').classList.remove("has-light-text")
+            document.documentElement.style.setProperty('--background-color', '#ffffff');
+        }
+    } else {
+        if (window.matchMedia("(prefers-color-scheme:dark)").matches) {
+            checkbox.checked = true;
+            document.querySelector('html').classList.add("has-light-text")
+            document.documentElement.style.setProperty('--background-color', '#000000');
+        } else {
+            checkbox.checked = false;
+            document.querySelector('html').classList.remove("has-light-text")
+            document.documentElement.style.setProperty('--background-color', '#ffffff');
+        }
+    }
+}
+checkCookie()
+</script>

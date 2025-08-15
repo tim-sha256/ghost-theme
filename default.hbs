@@ -115,6 +115,37 @@
         .gh-toc .is-active-link::before {
             background-color: var(--ghost-accent-color); /* Defines TOC   accent color based on Accent color set in Ghost Admin */
         } 
+
+        .dm-checkbox {
+            opacity: 0;
+            position: absolute;
+            width: fit-content;
+        }
+        .dm-checkbox-label {
+            background-color: var(--color-light-gray);
+            width: 50px;
+            height: 26px;
+            border-radius: 50px;
+            position: relative;
+            padding: 5px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .dm-checkbox-label .ball {
+            background-color: #fff;
+            width: 22px;
+            height: 22px;
+            position: absolute;
+            left: 2px;
+            top: 2px;
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+        }
+        .dm-checkbox:checked + .dm-checkbox-label .ball {
+            transform: translateX(24px);
+        }
     </style>
     {{!-- This tag outputs all your advanced SEO meta, structured data, and other important settings, it should always be the last tag before the closing head tag --}}
     {{ghost_head}}
