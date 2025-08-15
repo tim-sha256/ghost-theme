@@ -2175,7 +2175,7 @@ unless a heading is the very first element in the post content */
     color: var(--color-primary-text);
     background-color: var(--ghost-accent-color);
     text-decoration: none;
-    padding: 2px 4px; /* adds some space around the text */
+    padding: 2px 4px; /* adds  space around the text */
 }
 
 .gh-content .kg-callout-card .kg-callout-text,
