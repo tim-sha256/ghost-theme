@@ -51,7 +51,7 @@ production stylesheet in assets/built/screen.css
 /* ---------------------------------------------------------- */
 
 :root {
-    --color-white: #fff;
+    --color-white: #e6e2d6;
     --color-lighter-gray: rgb(0 0 0 / 0.05);
     --color-light-gray: #e6e6e6;
     --color-mid-gray: #ccc;
@@ -74,8 +74,8 @@ production stylesheet in assets/built/screen.css
 :root.has-light-text,
 :is(.gh-navigation, .gh-footer).has-accent-color {
     --color-lighter-gray: rgb(255 255 255 / 0.1);
-    --color-darker-gray: #fff;
-    --color-secondary-text: rgb(255 255 255 / 0.64);
+    --color-darker-gray: #0f1214;
+    --color-secondary-text: rgb(230 226 214 / 0.64);
     --color-border: rgb(255 255 255 / 0.15);
     --color-dark-border: rgb(255 255 255 / 0.5);
 }
