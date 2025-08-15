@@ -26,7 +26,7 @@ if (!window.darkModeInitialized) {
                     document.cookie = 'darkmode-prefered=true;path=/';
                 } else {
                     // Light mode
-                    root.style.setProperty('--background-color', '#e6e2d6');
+                    root.style.setProperty('--background-color', '#f8f8f8');
                     document.cookie = 'darkmode-prefered=false;path=/';
                 }
             }
@@ -55,7 +55,7 @@ if (!window.darkModeInitialized) {
         } else {
             // Light mode
             html.classList.remove('has-light-text');
-            root.style.setProperty('--background-color', '#e6e2d6');
+            root.style.setProperty('--background-color', '#f8f8f8');
         }
     }
 

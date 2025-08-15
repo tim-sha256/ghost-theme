@@ -34,10 +34,6 @@
         }
     </style>
 
-    <!-- Preload the font for better performance -->
-    <link rel="preload" href="{{asset "fonts/Typestar-OCR.otf"}}" as="font" type="font/otf" crossorigin>
-
-
     <script>
         /* The script for calculating the color contrast has been taken from
         https://gomakethings.com/dynamically-changing-the-text-color-based-on-background-color-contrast-with-vanilla-js/ */
@@ -117,6 +113,17 @@
         } 
 
     </style>
+    <style>
+    /* Keep sub-lists collapsed on mobile no matter what Tocbot does */
+        @media (max-width: 767px) {
+            .gh-toc .is-collapsible {
+            max-height: 0 !important;
+            overflow: hidden !important;
+            transition: none !important;
+            }
+        }
+    </style>
+
 
     <style>
         /* Darkmode button styles */
@@ -258,8 +265,6 @@
 {{! Initialize Tocbot after you load the script }}
 {{!lol}}
 <script>
-    const isMobile = window.matchMedia('(max-width: 767px)').matches;
-
     tocbot.init({
         // Where to render the table of contents.
         tocSelector: '.gh-toc',
@@ -280,20 +285,6 @@
         document.querySelectorAll('.gh-toc .is-collapsible')
         .forEach(el => el.classList.add('is-collapsed'));
     }, 0);
-
-    // On mobile, lock collapsed state (no auto-expand)
-    if (isMobile) {
-        document.querySelector('.gh-toc').addEventListener('click', e => {
-        const link = e.target.closest('.toc-link');
-        if (link) {
-            // Optional: toggle manually if you want tap-to-open
-            e.preventDefault();
-            link.parentElement
-            .querySelectorAll('.is-collapsible')
-            .forEach(el => el.classList.toggle('is-collapsed'));
-        }
-        });
-    }
 </script>
 {{!-- Ghost outputs required functional scripts with this tag, it should always be the last thing before the closing body tag --}}
 {{ghost_foot}}
