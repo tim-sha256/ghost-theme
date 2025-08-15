@@ -117,6 +117,7 @@
         } 
 
         /* Darkmode button styles */
+/* Darkmode button styles */
         .gh-dark-mode-toggle {
             margin-right: 4px;
             /* Remove mobile tap highlight */
@@ -124,6 +125,7 @@
             -webkit-touch-callout: none;
             -webkit-user-select: none;
             user-select: none;
+            flex-shrink: 0; /* Prevent button from shrinking */
         }
 
         .gh-dark-mode-toggle .gh-dark-mode-icon {
@@ -139,7 +141,7 @@
             opacity: 0.8;
         }
 
-        /* Mobile positioning - hide in actions, show in brand */
+        /* Mobile positioning - more space and better layout */
         @media (max-width: 767px) {
             .gh-navigation-actions .gh-dark-mode-toggle {
                 display: none;
@@ -148,13 +150,40 @@
             .gh-navigation-brand .gh-dark-mode-toggle {
                 display: flex;
                 align-items: center;
-                margin-right: 8px;
+                margin-right: 6px;
+                margin-left: 4px;
             }
             
             .gh-navigation-brand {
-                display: flex;
+                display: grid;
+                grid-template-columns: 1fr auto auto auto; /* Logo, Search, Dark Mode, Burger */
                 align-items: center;
-                flex-wrap: nowrap;
+                gap: 4px;
+                width: 100%;
+            }
+            
+            .gh-navigation-logo {
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                min-width: 0; /* Allow logo to shrink */
+            }
+            
+            /* Make buttons smaller on mobile */
+            .gh-navigation-brand .gh-icon-button {
+                width: 28px;
+                height: 28px;
+                flex-shrink: 0;
+            }
+            
+            .gh-navigation-brand .gh-icon-button svg {
+                width: 18px;
+                height: 18px;
+            }
+            
+            /* Reduce burger menu size slightly */
+            .gh-burger {
+                margin-left: 2px;
             }
         }
 
