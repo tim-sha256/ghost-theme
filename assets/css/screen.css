@@ -75,7 +75,7 @@ production stylesheet in assets/built/screen.css
 :root.has-light-text,
 :is(.gh-navigation, .gh-footer).has-accent-color {
     --color-lighter-gray: rgb(255 255 255 / 0.1);
-    --color-darker-gray: #0f1214;
+    --color-darker-gray: #e6e2d6;
     --color-secondary-text: rgb(230 226 214 / 0.64);
     --color-border: rgb(255 255 255 / 0.15);
     --color-dark-border: rgb(255 255 255 / 0.5);
