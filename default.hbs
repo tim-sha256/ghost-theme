@@ -117,30 +117,46 @@
         } 
 
         .gh-dark-mode-toggle {
-            position: relative;
-            margin-right: 8px;
-        }
-
-        .gh-dark-mode-toggle .gh-light-mode-icon {
-            display: block;
+            margin-right: 4px; /* Reduced margin */
         }
 
         .gh-dark-mode-toggle .gh-dark-mode-icon {
-            display: none;
+            transition: transform 0.3s ease;
+            transform: rotate(0deg); /* Default position for dark mode icon */
         }
 
-        .has-light-text .gh-dark-mode-toggle .gh-light-mode-icon {
-            display: none;
-        }
-
-        .has-light-text .gh-dark-mode-toggle .gh-dark-mode-icon {
-            display: block;
+        /* Rotate 180° in light mode */
+        :not(.has-light-text) .gh-dark-mode-toggle .gh-dark-mode-icon {
+            transform: rotate(180deg);
         }
 
         .gh-dark-mode-toggle:hover {
             opacity: 0.8;
         }
 
+        /* Mobile positioning - show in brand area */
+        @media (max-width: 767px) {
+            .gh-navigation-actions .gh-dark-mode-toggle {
+                display: none;
+            }
+            
+            .gh-navigation-brand .gh-dark-mode-toggle {
+                display: flex;
+                order: 1; /* Position between search and burger */
+                margin-right: 8px;
+            }
+        }
+
+        /* Desktop positioning - show in actions area */
+        @media (min-width: 768px) {
+            .gh-navigation-brand .gh-dark-mode-toggle {
+                display: none;
+            }
+            
+            .gh-navigation-actions .gh-dark-mode-toggle {
+                display: flex;
+            }
+        }
     </style>
     {{!-- This tag outputs all your advanced SEO meta, structured data, and other important settings, it should always be the last tag before the closing head tag --}}
     {{ghost_head}}

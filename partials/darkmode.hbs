@@ -1,6 +1,7 @@
 <button class="gh-dark-mode-toggle gh-icon-button" aria-label="Toggle dark mode" title="Toggle dark mode">
-    <span class="gh-dark-mode-icon">🌙</span>
-    <span class="gh-light-mode-icon">☀️</span>
+    <svg class="gh-dark-mode-icon" width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12,22 C17.5228475,22 22,17.5228475 22,12 C22,6.4771525 17.5228475,2 12,2 C6.4771525,2 2,6.4771525 2,12 C2,17.5228475 6.4771525,22 12,22 Z M12,20 L12,4 C16.418278,4 20,7.581722 20,12 C20,16.418278 16.418278,20 12,20 Z" fill="currentColor"/>
+    </svg>
 </button>
 
 <script>
@@ -13,10 +14,12 @@ toggleButton.addEventListener('click', () => {
     html.classList.toggle('has-light-text');
     
     if (html.classList.contains('has-light-text')) {
-        root.style.setProperty('--background-color', '#000000');
+        // Dark mode
+        root.style.setProperty('--background-color', '#0f0f0f');
         document.cookie = 'darkmode-prefered=true;path=/';
     } else {
-        root.style.setProperty('--background-color', '#ffffff');
+        // Light mode
+        root.style.setProperty('--background-color', '#e6e2d6');
         document.cookie = 'darkmode-prefered=false;path=/';
     }
 });
@@ -37,9 +40,11 @@ function initDarkMode() {
     const root = document.documentElement;
     
     if (preference === 'true' || (preference === null && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        // Dark mode
         html.classList.add('has-light-text');
         root.style.setProperty('--background-color', '#0f0f0f');
     } else {
+        // Light mode
         html.classList.remove('has-light-text');
         root.style.setProperty('--background-color', '#e6e2d6');
     }
