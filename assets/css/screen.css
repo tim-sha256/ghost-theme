@@ -59,7 +59,7 @@ production stylesheet in assets/built/screen.css
     --color-dark-gray: #444;
     --color-darker-gray: #15171a;
     --color-black: #000;
-    --color-bold-text: rgba(225,86,0,0.6);
+    --color-bold-text: rgba(225,86,0);
     --color-primary-text: var(--color-darker-gray);
     --color-secondary-text: rgb(0 0 0 / 0.55);
     --color-border: rgb(0 0 0 / 0.08);
@@ -2185,7 +2185,7 @@ unless a heading is the very first element in the post content */
 .gh-content b {
     font-weight: normal; /* Remove bold styling */
     background-color: var(--color-bold-text);
-    color: var(--color-primary-text); /* Make sure text is readable */
+    color: var(--background-color); /* Make sure text is readable */
 }
 
 .gh-content .kg-callout-card .kg-callout-text,
