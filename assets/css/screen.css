@@ -2145,6 +2145,11 @@ unless a heading is the very first element in the post content */
     margin-top: calc(48px * var(--content-spacing-factor, 1)) !important;
 }
 
+/* Add scroll offset for fixed header */
+.gh-content :is(h1, h2, h3, h4, h5, h6)[id] {
+    scroll-margin-top: 80px; /* 60px header + 20px breathing room */
+}
+
 /* Now the content typography styles */
 .gh-content h1 {
     font-size: calc(2.2em * var(--factor, 1));
