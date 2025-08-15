@@ -121,7 +121,6 @@
     <style>
         /* Darkmode button styles */
         .gh-dark-mode-toggle {
-            margin-right: 4px;
             /* Remove mobile tap highlight */
             -webkit-tap-highlight-color: transparent;
             -webkit-touch-callout: none;
@@ -143,55 +142,59 @@
             opacity: 0.8;
         }
 
-        /* Mobile positioning - more space and better layout */
+        /* Mobile positioning - keep dark mode visible in navigation bar */
         @media (max-width: 767px) {
+            /* Hide dark mode in actions on mobile */
             .gh-navigation-actions .gh-dark-mode-toggle {
                 display: none !important;
             }
             
+            /* Show dark mode in brand area on mobile */
             .gh-navigation-brand .gh-dark-mode-toggle {
-                display: flex;
+                display: flex !important;
                 align-items: center;
-                margin-right: 6px;
-                margin-left: 4px;
+                justify-content: center;
             }
             
-            .gh-navigation-brand {
-                display: flex;
+            /* Adjust navigation brand layout for mobile */
+            #gh-navigation .gh-navigation-brand {
+                display: grid;
+                grid-template-columns: 1fr auto auto auto;
                 align-items: center;
                 gap: 4px;
-                width: 100%;
+                height: 64px;
+                padding-right: 4px;
             }
             
-            .gh-navigation-logo {
-                flex: 1;
+            /* Logo takes available space but can shrink */
+            #gh-navigation .gh-navigation-logo {
                 overflow: hidden;
                 text-overflow: ellipsis;
                 white-space: nowrap;
-                min-width: 0; /* Allow logo to shrink */
+                min-width: 0;
+                font-size: 2rem; /* Slightly smaller on mobile */
             }
             
-            /* Ensure search toggle doesn't break layout */
-            .gh-navigation-brand .gh-search-toggle {
-                flex-shrink: 0;
-            }
-            
-            /* Make buttons smaller on mobile if needed */
-            .gh-navigation-brand .gh-icon-button {
+            /* Ensure all icon buttons are properly sized */
+            #gh-navigation .gh-navigation-brand .gh-icon-button {
                 width: 32px;
                 height: 32px;
+                padding: 0;
                 flex-shrink: 0;
             }
             
-            .gh-navigation-brand .gh-icon-button svg {
+            #gh-navigation .gh-navigation-brand .gh-icon-button svg {
                 width: 20px;
                 height: 20px;
             }
             
-            /* Ensure burger stays on same line */
-            .gh-burger {
-                margin-left: 2px;
-                flex-shrink: 0;
+            /* Specific adjustments for search and burger */
+            #gh-navigation .gh-navigation-brand .gh-search {
+                margin: 0;
+            }
+            
+            #gh-navigation .gh-burger {
+                margin: 0;
             }
         }
 
@@ -204,6 +207,28 @@
             .gh-navigation-actions .gh-dark-mode-toggle {
                 display: flex;
                 align-items: center;
+                margin-right: 4px;
+            }
+        }
+
+        /* Extra small screens - if needed */
+        @media (max-width: 380px) {
+            #gh-navigation .gh-navigation-brand {
+                gap: 2px;
+            }
+            
+            #gh-navigation .gh-navigation-logo {
+                font-size: 1.8rem;
+            }
+            
+            #gh-navigation .gh-navigation-brand .gh-icon-button {
+                width: 28px;
+                height: 28px;
+            }
+            
+            #gh-navigation .gh-navigation-brand .gh-icon-button svg {
+                width: 18px;
+                height: 18px;
             }
         }
     </style>
@@ -245,6 +270,7 @@
         headingsOffset: 60,
         scrollSmoothOffset: -60,
         scrollSmooth: true,
+        collapseDepth: 6,
 
     });
 </script>
