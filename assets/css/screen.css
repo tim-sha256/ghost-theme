@@ -2200,11 +2200,10 @@ unless a heading is the very first element in the post content */
 
 .gh-content ul li {
     list-style-type: none;
-    margin-left: 0.5em; /* Adjust indentation */
 }
 
 .gh-content ul li::before {
-    content: "* ";
+    content: "# ";
     color: var(--ghost-accent-color);
     margin-right: 0.5em;
 }
