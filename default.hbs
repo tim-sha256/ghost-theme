@@ -116,36 +116,31 @@
             background-color: var(--ghost-accent-color); /* Defines TOC   accent color based on Accent color set in Ghost Admin */
         } 
 
-        .dm-checkbox {
-            opacity: 0;
-            position: absolute;
-            width: fit-content;
-        }
-        .dm-checkbox-label {
-            background-color: var(--color-light-gray);
-            width: 50px;
-            height: 26px;
-            border-radius: 50px;
+        .gh-dark-mode-toggle {
             position: relative;
-            padding: 5px;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            margin-right: 8px;
         }
-        .dm-checkbox-label .ball {
-            background-color: #fff;
-            width: 22px;
-            height: 22px;
-            position: absolute;
-            left: 2px;
-            top: 2px;
-            border-radius: 50%;
-            transition: transform 0.3s ease;
+
+        .gh-dark-mode-toggle .gh-light-mode-icon {
+            display: block;
         }
-        .dm-checkbox:checked + .dm-checkbox-label .ball {
-            transform: translateX(24px);
+
+        .gh-dark-mode-toggle .gh-dark-mode-icon {
+            display: none;
         }
+
+        .has-light-text .gh-dark-mode-toggle .gh-light-mode-icon {
+            display: none;
+        }
+
+        .has-light-text .gh-dark-mode-toggle .gh-dark-mode-icon {
+            display: block;
+        }
+
+        .gh-dark-mode-toggle:hover {
+            opacity: 0.8;
+        }
+
     </style>
     {{!-- This tag outputs all your advanced SEO meta, structured data, and other important settings, it should always be the last tag before the closing head tag --}}
     {{ghost_head}}
