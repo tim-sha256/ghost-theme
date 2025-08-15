@@ -273,6 +273,11 @@
         collapseDepth: 2,
 
     });
+
+    setTimeout(() => {
+        document.querySelectorAll('.gh-toc .is-collapsible')
+        .forEach(el => el.classList.add('is-collapsed'));
+    }, 0);
 </script>
 {{!-- Ghost outputs required functional scripts with this tag, it should always be the last thing before the closing body tag --}}
 {{ghost_foot}}
