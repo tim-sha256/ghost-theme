@@ -10,10 +10,11 @@ if (!window.darkModeInitialized) {
     window.darkModeInitialized = true;
     
     function setupDarkModeToggle() {
-        const toggleButtons = document.querySelectorAll('.gh-dark-mode-toggle');
-        
-        toggleButtons.forEach(button => {
-            button.addEventListener('click', () => {
+        // Use event delegation on document body to catch all clicks on dark mode buttons
+        document.body.addEventListener('click', (e) => {
+            // Check if clicked element or its parent is a dark mode toggle
+            const button = e.target.closest('.gh-dark-mode-toggle');
+            if (button) {
                 const html = document.querySelector('html');
                 const root = document.documentElement;
                 
@@ -28,7 +29,7 @@ if (!window.darkModeInitialized) {
                     root.style.setProperty('--background-color', '#e6e2d6');
                     document.cookie = 'darkmode-prefered=false;path=/';
                 }
-            });
+            }
         });
     }
 
@@ -58,6 +59,7 @@ if (!window.darkModeInitialized) {
         }
     }
 
+    // Initialize immediately
     initDarkMode();
     setupDarkModeToggle();
 }

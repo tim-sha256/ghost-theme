@@ -116,8 +116,10 @@
             background-color: var(--ghost-accent-color); /* Defines TOC   accent color based on Accent color set in Ghost Admin */
         } 
 
+    </style>
+
+    <style>
         /* Darkmode button styles */
-/* Darkmode button styles */
         .gh-dark-mode-toggle {
             margin-right: 4px;
             /* Remove mobile tap highlight */
@@ -144,7 +146,7 @@
         /* Mobile positioning - more space and better layout */
         @media (max-width: 767px) {
             .gh-navigation-actions .gh-dark-mode-toggle {
-                display: none;
+                display: none !important;
             }
             
             .gh-navigation-brand .gh-dark-mode-toggle {
@@ -155,46 +157,53 @@
             }
             
             .gh-navigation-brand {
-                display: grid;
-                grid-template-columns: 1fr auto auto auto; /* Logo, Search, Dark Mode, Burger */
+                display: flex;
                 align-items: center;
                 gap: 4px;
                 width: 100%;
             }
             
             .gh-navigation-logo {
+                flex: 1;
                 overflow: hidden;
                 text-overflow: ellipsis;
                 white-space: nowrap;
                 min-width: 0; /* Allow logo to shrink */
             }
             
-            /* Make buttons smaller on mobile */
+            /* Ensure search toggle doesn't break layout */
+            .gh-navigation-brand .gh-search-toggle {
+                flex-shrink: 0;
+            }
+            
+            /* Make buttons smaller on mobile if needed */
             .gh-navigation-brand .gh-icon-button {
-                width: 28px;
-                height: 28px;
+                width: 32px;
+                height: 32px;
                 flex-shrink: 0;
             }
             
             .gh-navigation-brand .gh-icon-button svg {
-                width: 18px;
-                height: 18px;
+                width: 20px;
+                height: 20px;
             }
             
-            /* Reduce burger menu size slightly */
+            /* Ensure burger stays on same line */
             .gh-burger {
                 margin-left: 2px;
+                flex-shrink: 0;
             }
         }
 
         /* Desktop positioning - hide in brand, show in actions */
         @media (min-width: 768px) {
             .gh-navigation-brand .gh-dark-mode-toggle {
-                display: none;
+                display: none !important;
             }
             
             .gh-navigation-actions .gh-dark-mode-toggle {
                 display: flex;
+                align-items: center;
             }
         }
     </style>
