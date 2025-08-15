@@ -59,6 +59,7 @@ production stylesheet in assets/built/screen.css
     --color-dark-gray: #444;
     --color-darker-gray: #15171a;
     --color-black: #000;
+    --color-bold-text: rgba(230,226,214,0.6);
     --color-primary-text: var(--color-darker-gray);
     --color-secondary-text: rgb(0 0 0 / 0.55);
     --color-border: rgb(0 0 0 / 0.08);
@@ -2183,7 +2184,7 @@ unless a heading is the very first element in the post content */
 .gh-content strong,
 .gh-content b {
     font-weight: normal; /* Remove bold styling */
-    background-color: var(--ghost-accent-color);
+    background-color: var(--ghost-bold-text);
     color: var(--color-primary-text); /* Make sure text is readable */
 }
 
