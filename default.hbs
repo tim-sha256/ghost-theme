@@ -116,16 +116,21 @@
             background-color: var(--ghost-accent-color); /* Defines TOC   accent color based on Accent color set in Ghost Admin */
         } 
 
+        /* Darkmode button styles */
         .gh-dark-mode-toggle {
-            margin-right: 4px; /* Reduced margin */
+            margin-right: 4px;
+            /* Remove mobile tap highlight */
+            -webkit-tap-highlight-color: transparent;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            user-select: none;
         }
 
         .gh-dark-mode-toggle .gh-dark-mode-icon {
             transition: transform 0.3s ease;
-            transform: rotate(0deg); /* Default position for dark mode icon */
+            transform: rotate(0deg);
         }
 
-        /* Rotate 180° in light mode */
         :not(.has-light-text) .gh-dark-mode-toggle .gh-dark-mode-icon {
             transform: rotate(180deg);
         }
@@ -134,29 +139,37 @@
             opacity: 0.8;
         }
 
-        /* Mobile positioning - show in brand area */
+        /* Mobile positioning - same row as other elements */
         @media (max-width: 767px) {
-            .gh-navigation-actions .gh-dark-mode-toggle {
+            .gh-dark-mode-desktop {
                 display: none;
             }
             
-            .gh-navigation-brand .gh-dark-mode-toggle {
+            .gh-dark-mode-mobile {
                 display: flex;
-                order: 1; /* Position between search and burger */
+                align-items: center;
+                /* Remove the new line behavior */
                 margin-right: 8px;
+            }
+            
+            .gh-navigation-brand {
+                display: flex;
+                align-items: center;
+                flex-wrap: nowrap; /* Keep everything on same row */
             }
         }
 
-        /* Desktop positioning - show in actions area */
+        /* Desktop positioning */
         @media (min-width: 768px) {
-            .gh-navigation-brand .gh-dark-mode-toggle {
+            .gh-dark-mode-mobile {
                 display: none;
             }
             
-            .gh-navigation-actions .gh-dark-mode-toggle {
+            .gh-dark-mode-desktop {
                 display: flex;
             }
         }
+            
     </style>
     {{!-- This tag outputs all your advanced SEO meta, structured data, and other important settings, it should always be the last tag before the closing head tag --}}
     {{ghost_head}}
