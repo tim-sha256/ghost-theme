@@ -2,6 +2,8 @@
 <html lang="{{@site.locale}}">
 <head>
 
+    {{!-- Accent color (interface): #e15600 // #ff6000 was too bright}}
+
     {{!-- Basic meta - advanced meta is output with {{ghost_head}} below --}}
     <title>{{meta_title}}</title>
     <meta charset="utf-8">
@@ -52,6 +54,10 @@
 
         document.documentElement.className = `has-${textColor}-text`;
     </script>
+
+    {{!-- Nutshell! https://ncase.me/nutshell/ --}}
+    <script src="https://cdn.jsdelivr.net/gh/ncase/nutshell/nutshell.min.js"></script>
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.32.2/tocbot.css">
     <style>
         .gh-content {
