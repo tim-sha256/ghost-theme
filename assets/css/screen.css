@@ -78,6 +78,8 @@ production stylesheet in assets/built/screen.css
     --color-secondary-text: rgb(230 226 214 / 0.64);
     --color-border: rgb(255 255 255 / 0.15);
     --color-dark-border: rgb(255 255 255 / 0.5);
+    --color-primary-text: #e6e2d6; /* ADD THIS LINE */
+
 }
 
 /* 2. Fonts
