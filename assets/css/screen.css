@@ -2169,7 +2169,7 @@ unless a heading is the very first element in the post content */
 .gh-content a {
     text-decoration: underline;
     text-decoration-color: var(--ghost-accent-color);
-    text-underline-offset: 1px;
+    text-underline-offset: 2px;
     transition: all 0.2s ease;
 }
 
@@ -2183,8 +2183,9 @@ unless a heading is the very first element in the post content */
 
 .gh-content strong,
 .gh-content b {
-    font-weight: normal; /* Remove bold styling */
-    background-color: var(--color-bold-text);
+    font-weight: 500; /* Remove bold styling */
+    background-color: var(--color-primary-text);
+    padding: 1px 2px;
     color: var(--background-color); /* Make sure text is readable */
 }
 
