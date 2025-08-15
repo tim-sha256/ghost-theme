@@ -139,37 +139,35 @@
             opacity: 0.8;
         }
 
-        /* Mobile positioning - same row as other elements */
+        /* Mobile positioning - hide in actions, show in brand */
         @media (max-width: 767px) {
-            .gh-dark-mode-desktop {
+            .gh-navigation-actions .gh-dark-mode-toggle {
                 display: none;
             }
             
-            .gh-dark-mode-mobile {
+            .gh-navigation-brand .gh-dark-mode-toggle {
                 display: flex;
                 align-items: center;
-                /* Remove the new line behavior */
                 margin-right: 8px;
             }
             
             .gh-navigation-brand {
                 display: flex;
                 align-items: center;
-                flex-wrap: nowrap; /* Keep everything on same row */
+                flex-wrap: nowrap;
             }
         }
 
-        /* Desktop positioning */
+        /* Desktop positioning - hide in brand, show in actions */
         @media (min-width: 768px) {
-            .gh-dark-mode-mobile {
+            .gh-navigation-brand .gh-dark-mode-toggle {
                 display: none;
             }
             
-            .gh-dark-mode-desktop {
+            .gh-navigation-actions .gh-dark-mode-toggle {
                 display: flex;
             }
         }
-            
     </style>
     {{!-- This tag outputs all your advanced SEO meta, structured data, and other important settings, it should always be the last tag before the closing head tag --}}
     {{ghost_head}}

@@ -1,67 +1,64 @@
-<!-- Desktop version -->
-<button class="gh-dark-mode-toggle gh-dark-mode-desktop gh-icon-button" aria-label="Toggle dark mode" title="Toggle dark mode">
-    <svg class="gh-dark-mode-icon" width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path d="M12,22 C17.5228475,22 22,17.5228475 22,12 C22,6.4771525 17.5228475,2 12,2 C6.4771525,2 2,6.4771525 2,12 C2,17.5228475 6.4771525,22 12,22 Z M12,20 L12,4 C16.418278,4 20,7.581722 20,12 C20,16.418278 16.418278,20 12,20 Z" fill="currentColor"/>
-    </svg>
-</button>
-
-<!-- Mobile version -->
-<button class="gh-dark-mode-toggle gh-dark-mode-mobile gh-icon-button" aria-label="Toggle dark mode" title="Toggle dark mode">
+<button class="gh-dark-mode-toggle gh-icon-button" aria-label="Toggle dark mode" title="Toggle dark mode">
     <svg class="gh-dark-mode-icon" width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
         <path d="M12,22 C17.5228475,22 22,17.5228475 22,12 C22,6.4771525 17.5228475,2 12,2 C6.4771525,2 2,6.4771525 2,12 C2,17.5228475 6.4771525,22 12,22 Z M12,20 L12,4 C16.418278,4 20,7.581722 20,12 C20,16.418278 16.418278,20 12,20 Z" fill="currentColor"/>
     </svg>
 </button>
 
 <script>
-function setupDarkModeToggle() {
-    const toggleButtons = document.querySelectorAll('.gh-dark-mode-toggle');
+// Only run this script once
+if (!window.darkModeInitialized) {
+    window.darkModeInitialized = true;
     
-    toggleButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            const html = document.querySelector('html');
-            const root = document.documentElement;
-            
-            html.classList.toggle('has-light-text');
-            
-            if (html.classList.contains('has-light-text')) {
-                // Dark mode
-                root.style.setProperty('--background-color', '#0f0f0f');
-                document.cookie = 'darkmode-prefered=true;path=/';
-            } else {
-                // Light mode
-                root.style.setProperty('--background-color', '#e6e2d6');
-                document.cookie = 'darkmode-prefered=false;path=/';
-            }
+    function setupDarkModeToggle() {
+        const toggleButtons = document.querySelectorAll('.gh-dark-mode-toggle');
+        
+        toggleButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const html = document.querySelector('html');
+                const root = document.documentElement;
+                
+                html.classList.toggle('has-light-text');
+                
+                if (html.classList.contains('has-light-text')) {
+                    // Dark mode
+                    root.style.setProperty('--background-color', '#0f0f0f');
+                    document.cookie = 'darkmode-prefered=true;path=/';
+                } else {
+                    // Light mode
+                    root.style.setProperty('--background-color', '#e6e2d6');
+                    document.cookie = 'darkmode-prefered=false;path=/';
+                }
+            });
         });
-    });
-}
+    }
 
-// Check saved preference or system preference
-function initDarkMode() {
-    const cookies = document.cookie.split(';');
-    let preference = null;
-    
-    for (let cookie of cookies) {
-        if (cookie.trim().startsWith('darkmode-prefered=')) {
-            preference = cookie.trim().split('=')[1];
-            break;
+    // Check saved preference or system preference
+    function initDarkMode() {
+        const cookies = document.cookie.split(';');
+        let preference = null;
+        
+        for (let cookie of cookies) {
+            if (cookie.trim().startsWith('darkmode-prefered=')) {
+                preference = cookie.trim().split('=')[1];
+                break;
+            }
+        }
+        
+        const html = document.querySelector('html');
+        const root = document.documentElement;
+        
+        if (preference === 'true' || (preference === null && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            // Dark mode
+            html.classList.add('has-light-text');
+            root.style.setProperty('--background-color', '#0f0f0f');
+        } else {
+            // Light mode
+            html.classList.remove('has-light-text');
+            root.style.setProperty('--background-color', '#e6e2d6');
         }
     }
-    
-    const html = document.querySelector('html');
-    const root = document.documentElement;
-    
-    if (preference === 'true' || (preference === null && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-        // Dark mode
-        html.classList.add('has-light-text');
-        root.style.setProperty('--background-color', '#0f0f0f');
-    } else {
-        // Light mode
-        html.classList.remove('has-light-text');
-        root.style.setProperty('--background-color', '#e6e2d6');
-    }
-}
 
-initDarkMode();
-setupDarkModeToggle();
+    initDarkMode();
+    setupDarkModeToggle();
+}
 </script>
