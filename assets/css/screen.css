@@ -2406,9 +2406,9 @@ unless a heading is the very first element in the post content */
     font-size: 0.95em;
     line-height: 1em;
     background: none; /* Remove background */
-    border: 1px solid var(--color-primary-text); /* Add rectangular frame */
+    border: 2px solid var(--color-primary-text); /* Add rectangular frame */
     /* border-radius: 0.25em; */
-    font-family: var(--font-condensed); /* Use condensed font */
+    font-family: var(--font-mono); /* Use condensed font */
     color: var(--color-primary-text); /* Ensure text color matches border */
 }
 

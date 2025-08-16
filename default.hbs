@@ -299,6 +299,33 @@
         .forEach(el => el.classList.add('is-collapsed'));
     }, 0);
 </script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const codeElements = document.querySelectorAll('.gh-content :not(pre) > code');
+    
+    codeElements.forEach(function(codeEl) {
+        codeEl.style.cursor = 'pointer';
+        codeEl.title = 'Click to copy';
+        
+        codeEl.addEventListener('click', function() {
+            navigator.clipboard.writeText(codeEl.textContent).then(function() {
+                // Flash effect
+                codeEl.style.transition = 'all 0.15s ease';
+                codeEl.style.backgroundColor = 'var(--ghost-accent-color)';
+                codeEl.style.color = 'var(--color-white)';
+                codeEl.style.transform = 'scale(1.05)';
+                
+                setTimeout(function() {
+                    codeEl.style.backgroundColor = '';
+                    codeEl.style.color = 'var(--color-primary-text)';
+                    codeEl.style.transform = 'scale(1)';
+                }, 150);
+            });
+        });
+    });
+});
+</script>
 {{!-- Ghost outputs required functional scripts with this tag, it should always be the last thing before the closing body tag --}}
 {{ghost_foot}}
 
