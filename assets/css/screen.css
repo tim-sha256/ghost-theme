@@ -64,14 +64,23 @@ production stylesheet in assets/built/screen.css
     --color-secondary-text: rgb(0 0 0 / 0.55);
     --color-border: rgb(0 0 0 / 0.08);
     --color-dark-border: rgb(0 0 0 / 0.55);
+
+    /* Syntax highlighting colors - light theme */
+    --syntax-keyword: var(--color-bold-text);
+    --syntax-number: var(--ghost-accent-color);
+    --syntax-function: var(--color-bold-text);
+    --syntax-string: #78289f;
+    --syntax-comment: #608ba6; 
+
     --font-sans: 'Iosevka Custom', Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
     --font-serif: 'Iosevka Custom', "EB Garamond", Georgia, Times, serif;
     --font-serif-alt: 'Iosevka Custom', Georgia, Times, serif;
     --font-mono: 'Iosevka Custom', "JetBrains Mono", Menlo, Consolas, Monaco, "Liberation Mono", "Lucida Console", monospace;    --container-width: 1320px;
     --font-condensed: 'Iosevka Custom Condensed', 'Iosevka Custom', monospace;
+
     --container-gap: clamp(24px, 1.7032rem + 1.9355vw, 48px);
     --grid-gap: 42px;
-}
+} 
 
 :root.has-light-text,
 :is(.gh-navigation, .gh-footer).has-accent-color {
@@ -81,6 +90,9 @@ production stylesheet in assets/built/screen.css
     --color-border: rgb(255 255 255 / 0.15);
     --color-dark-border: rgb(255 255 255 / 0.5);
     --color-primary-text: #e6e2d6; /* ADD THIS LINE */
+
+    --syntax-string: #a0a300;
+
 
 }
 
@@ -2400,8 +2412,6 @@ unless a heading is the very first element in the post content */
     font-family: var(--font-mono);
 } */
 
-/* Base styling for all code blocks (with and without language) */
-/* Base styling for all code blocks (with and without language) */
 /* Base styling for all code blocks */
 .gh-content pre {
     overflow: auto;
@@ -2420,40 +2430,59 @@ unless a heading is the very first element in the post content */
     font-family: inherit;
 }
 
-/* Syntax highlighting for the token-based system */
-span.token.function { 
-    color: var(--color-bold-text) !important; 
-    font-weight: bold !important; 
+/* Comprehensive syntax highlighting */
+span.token.string,
+span.hljs-string { 
+    color: var(--syntax-string) !important; 
 }
 
-span.token.operator { 
-    color: var(--ghost-accent-color) !important; 
-}
-
-span.token.keyword { 
-    color: var(--color-bold-text) !important; 
-    font-weight: bold !important; 
-}
-
-span.token.string { 
-    color: var(--color-secondary-text) !important; 
-}
-
-span.token.comment { 
-    color: var(--color-mid-gray) !important; 
+span.token.comment,
+span.hljs-comment { 
+    color: var(--syntax-comment) !important; 
     font-style: italic !important; 
 }
 
-span.token.number { 
+span.token.keyword,
+span.token.builtin,
+span.hljs-keyword,
+span.hljs-built_in { 
+    color: var(--syntax-keyword) !important; 
+    font-weight: bold !important; 
+}
+
+span.token.function,
+span.hljs-function,
+span.hljs-title { 
+    color: var(--syntax-function) !important; 
+    font-weight: bold !important; 
+}
+
+span.token.number,
+span.token.boolean,
+span.hljs-number,
+span.hljs-literal { 
+    color: var(--syntax-number) !important; 
+}
+
+span.token.operator,
+span.token.punctuation,
+span.hljs-operator { 
     color: var(--ghost-accent-color) !important; 
 }
 
-span.token.variable { 
-    color: var(--color-dark-gray) !important; 
+span.token.variable,
+span.token.attr-name,
+span.hljs-variable,
+span.hljs-attr { 
+    color: var(--color-secondary-text) !important; 
 }
 
-span.token.builtin { 
-    color: var(--color-bold-text) !important; 
+span.token.class-name,
+span.token.constant,
+span.hljs-class,
+span.hljs-type { 
+    color: var(--syntax-keyword) !important; 
+    font-weight: bold !important; 
 }
 
 /* Reset any default styling */
