@@ -2576,9 +2576,9 @@ span.hljs-type {
 
 /* Callout */
 
-.kg-callout-card.kg-card {
+/* .kg-callout-card.kg-card {
     border-radius: 0.25em;
-}
+} */
 
 .kg-callout-card-accent a {
     text-decoration: underline;
