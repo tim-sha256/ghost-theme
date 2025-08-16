@@ -555,7 +555,8 @@ button.gh-form-input {
 .gh-navigation :is(.gh-navigation-logo, a:not(.gh-button), .gh-icon-button) {
     color: inherit;
 }
-.gh-navigation a:hover {
+.gh-navigation a:not(.gh-button):hover {
+    opacity: 1;
     color: var(--color-primary-text);
     background-color: var(--ghost-accent-color);
     text-decoration: none;
