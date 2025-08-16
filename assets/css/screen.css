@@ -2408,7 +2408,7 @@ unless a heading is the very first element in the post content */
     line-height: 1.5em;
     background: none; /* Remove background */
     border: 1px solid var(--color-primary-text); /* Same border as inline code */
-    border-radius: 6px;
+    /* border-radius: 6px; */
     font-family: var(--font-mono);
     color: var(--color-primary-text);
 }
