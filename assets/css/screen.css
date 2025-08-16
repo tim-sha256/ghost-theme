@@ -2306,7 +2306,7 @@ unless a heading is the very first element in the post content */
 }
 
 .gh-content ul li::before {
-    content: "# "; /* replace later, limitation due to trial font */
+    content: "* "; 
     color: var(--ghost-accent-color);
     margin-right: 0.5em;
 }
@@ -2388,8 +2388,9 @@ unless a heading is the very first element in the post content */
 .gh-content .gh-table table :is(th, td):last-child {
     padding-right: 0;
 }
+/* default ghost code blocks */ 
 
-.gh-content pre {
+/* .gh-content pre {
     overflow: auto;
     padding: 16px;
     font-size: 1.5rem;
@@ -2397,6 +2398,61 @@ unless a heading is the very first element in the post content */
     background: var(--color-lighter-gray);
     border-radius: 6px;
     font-family: var(--font-mono);
+} */
+
+/* Base styling for all code blocks (with and without language) */
+.gh-content pre {
+    overflow: auto;
+    padding: 16px;
+    font-size: 1.5rem;
+    line-height: 1.5em;
+    background: none; /* Remove background */
+    border: 1px solid var(--color-primary-text); /* Same border as inline code */
+    border-radius: 6px;
+    font-family: var(--font-mono);
+    color: var(--color-primary-text);
+}
+
+/* Ensure code inside pre also follows the styling */
+.gh-content pre code {
+    background: none;
+    padding: 0;
+    font-family: inherit;
+    color: inherit;
+}
+
+/* Custom syntax highlighting using your theme colors */
+.hljs-keyword, .hljs-selector-tag, .hljs-built_in { 
+    color: var(--ghost-accent-color); 
+    font-weight: bold; 
+}
+
+.hljs-string, .hljs-attr { 
+    color: var(--color-secondary-text); 
+}
+
+.hljs-comment { 
+    color: var(--color-mid-gray); 
+    font-style: italic; 
+}
+
+.hljs-number, .hljs-literal { 
+    color: var(--ghost-accent-color); 
+}
+
+.hljs-function, .hljs-title { 
+    color: var(--color-primary-text); 
+    font-weight: bold; 
+}
+
+.hljs-variable, .hljs-name { 
+    color: var(--color-dark-gray); 
+}
+
+/* Reset any default hljs styling */
+.hljs {
+    background: none !important;
+    color: inherit !important;
 }
 
 .gh-content :not(pre) > code {
