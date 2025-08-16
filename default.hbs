@@ -12,6 +12,17 @@
     {{!-- Preload main styles and scripts for better performance --}}
     <link rel="preload" as="style" href="{{asset "built/screen.css"}}">
     <link rel="preload" as="script" href="{{asset "built/source.js"}}">
+
+    <style>
+        @font-face {
+            font-family: 'Iosevka Custom';
+            src: url('/assets/fonts/IosevkaCustom-Regular.woff2') format('woff2');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+    </style>
+    <link rel="preload" as="font" href=""{{asset x`"assets/fonts/IosevkaCustom-Regular.woff2"}} type="font/woff2" crossorigin="anonymous"> 
     
     {{!-- Fonts are preloaded and defined in the default template to avoid layout shift --}}
     {{> "typography/fonts"}}
