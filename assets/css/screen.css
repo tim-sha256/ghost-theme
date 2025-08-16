@@ -110,7 +110,7 @@ production stylesheet in assets/built/screen.css
 
 /* === NORMAL WIDTH === */
 
-/* Regular weight (400) */
+/* Regular weight (400) -- brought this to default.hbs for faster loading*/
 /* @font-face {
     font-family: 'Iosevka Custom';
     src: url('/assets/fonts/IosevkaCustom-Regular.woff2') format('woff2');
@@ -135,14 +135,14 @@ production stylesheet in assets/built/screen.css
     font-display: swap;
 }
 
-/* Bold weight (700) */
-@font-face {
+/* Bold weight (700) -- brought this to default.hbs for faster loading */
+/* @font-face {
     font-family: 'Iosevka Custom';
     src: url('/assets/fonts/IosevkaCustom-Bold.woff2') format('woff2');
     font-weight: 700;
     font-style: normal;
     font-display: swap;
-}
+} */
 
 @font-face {
     font-family: 'Iosevka Custom';
