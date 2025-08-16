@@ -2732,6 +2732,7 @@ figcaption a {
 
 .gh-comments {
     margin-top: 48px;
+    font-family: var(--font-sans) !important;
 }
 
 /* 18. Recent posts
