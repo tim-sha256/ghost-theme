@@ -276,7 +276,10 @@ a {
 }
 
 a:hover {
-    opacity: 0.8;
+    opacity: 1;
+    color: var(--color-primary-text);
+    background-color: var(--ghost-accent-color);
+    text-decoration: none;
 }
 
 .gh-button {
