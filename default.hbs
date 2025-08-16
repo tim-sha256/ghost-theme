@@ -58,6 +58,23 @@
     {{!-- Nutshell! https://ncase.me/nutshell/ --}}
     <script src="https://cdn.jsdelivr.net/gh/ncase/nutshell/nutshell.min.js"></script>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        console.log('Highlight.js version:', hljs.version);
+        
+        // Highlight all code blocks
+        hljs.highlightAll();
+        
+        // Debug: log all code blocks
+        const codeBlocks = document.querySelectorAll('pre code');
+        console.log('Found code blocks:', codeBlocks.length);
+        codeBlocks.forEach((block, index) => {
+            console.log(`Block ${index}:`, block.className, block.dataset);
+        });
+    });
+    </script>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.32.2/tocbot.css">
     <style>
         .gh-content {
