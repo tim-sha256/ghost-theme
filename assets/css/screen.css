@@ -136,13 +136,13 @@ production stylesheet in assets/built/screen.css
 }
 
 /* Bold weight (700) -- brought this to default.hbs for faster loading */
-/* @font-face {
+@font-face {
     font-family: 'Iosevka Custom';
     src: url('/assets/fonts/IosevkaCustom-Bold.woff2') format('woff2');
     font-weight: 700;
     font-style: normal;
     font-display: swap;
-} */
+}
 
 @font-face {
     font-family: 'Iosevka Custom';
