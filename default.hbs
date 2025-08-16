@@ -307,20 +307,53 @@ document.addEventListener('DOMContentLoaded', function() {
     codeElements.forEach(function(codeEl) {
         codeEl.style.cursor = 'pointer';
         codeEl.title = 'Click to copy';
+        codeEl.style.position = 'relative';
         
         codeEl.addEventListener('click', function() {
             navigator.clipboard.writeText(codeEl.textContent).then(function() {
-                // Flash effect
+                // Create tooltip
+                const tooltip = document.createElement('span');
+                tooltip.textContent = 'Copied!';
+                tooltip.style.cssText = `
+                    position: absolute;
+                    top: -35px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    background: var(--color-darker-gray);
+                    color: var(--color-white);
+                    padding: 4px 8px;
+                    border-radius: 4px;
+                    font-size: 12px;
+                    font-family: var(--font-sans);
+                    white-space: nowrap;
+                    z-index: 1000;
+                    opacity: 0;
+                    transition: opacity 0.2s ease;
+                `;
+                
+                // Add tooltip to code element
+                codeEl.appendChild(tooltip);
+                
+                // Fade in
+                setTimeout(() => tooltip.style.opacity = '1', 10);
+                
+                // Visual feedback for code block
                 codeEl.style.transition = 'all 0.15s ease';
                 codeEl.style.backgroundColor = 'var(--ghost-accent-color)';
                 codeEl.style.color = 'var(--color-white)';
-                codeEl.style.transform = 'scale(1.05)';
                 
+                // Remove tooltip and reset styles
                 setTimeout(function() {
+                    tooltip.style.opacity = '0';
                     codeEl.style.backgroundColor = '';
                     codeEl.style.color = 'var(--color-primary-text)';
-                    codeEl.style.transform = 'scale(1)';
-                }, 150);
+                    
+                    setTimeout(() => {
+                        if (tooltip.parentNode) {
+                            tooltip.parentNode.removeChild(tooltip);
+                        }
+                    }, 200);
+                }, 1000);
             });
         });
     });

@@ -2401,12 +2401,12 @@ unless a heading is the very first element in the post content */
 
 .gh-content :not(pre) > code {
     vertical-align: baseline;
-    padding: 0.15em 0.4em;
+    padding: 0.1em 0.3em;
     font-weight: 400;
     font-size: 0.95em;
     line-height: 1em;
     background: none; /* Remove background */
-    border: 2px solid var(--color-primary-text); /* Add rectangular frame */
+    border: 1px solid var(--color-primary-text); /* Add rectangular frame */
     /* border-radius: 0.25em; */
     font-family: var(--font-mono); /* Use condensed font */
     color: var(--color-primary-text); /* Ensure text color matches border */
