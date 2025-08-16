@@ -2402,6 +2402,7 @@ unless a heading is the very first element in the post content */
 
 /* Base styling for all code blocks (with and without language) */
 /* Base styling for all code blocks (with and without language) */
+/* Base styling for all code blocks */
 .gh-content pre {
     overflow: auto;
     padding: 16px;
@@ -2413,23 +2414,50 @@ unless a heading is the very first element in the post content */
     color: var(--color-primary-text);
 }
 
-/* Ensure code inside pre also follows the styling */
 .gh-content pre code {
     background: none !important;
     padding: 0;
     font-family: inherit;
-    color: inherit;
 }
 
-/* Hard-coded colors for testing */
-.hljs-keyword { color: #ff6600 !important; font-weight: bold; }
-.hljs-string { color: #008000 !important; }
-.hljs-comment { color: #999999 !important; font-style: italic; }
-.hljs-number { color: #0066cc !important; }
-.hljs-function { color: #cc0066 !important; font-weight: bold; }
+/* Syntax highlighting for the token-based system */
+span.token.function { 
+    color: var(--color-bold-text) !important; 
+    font-weight: bold !important; 
+}
 
-/* Reset hljs background */
-.hljs {
+span.token.operator { 
+    color: var(--ghost-accent-color) !important; 
+}
+
+span.token.keyword { 
+    color: var(--color-bold-text) !important; 
+    font-weight: bold !important; 
+}
+
+span.token.string { 
+    color: var(--color-secondary-text) !important; 
+}
+
+span.token.comment { 
+    color: var(--color-mid-gray) !important; 
+    font-style: italic !important; 
+}
+
+span.token.number { 
+    color: var(--ghost-accent-color) !important; 
+}
+
+span.token.variable { 
+    color: var(--color-dark-gray) !important; 
+}
+
+span.token.builtin { 
+    color: var(--color-bold-text) !important; 
+}
+
+/* Reset any default styling */
+.hljs, code[class*="language-"] {
     background: transparent !important;
     color: var(--color-primary-text) !important;
 }
