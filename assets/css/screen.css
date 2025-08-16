@@ -2584,6 +2584,11 @@ span.hljs-type {
     border-radius: 0px !important;
 }
 
+.kg-callout-card-white {
+    box-shadow: inset 0 0 0 1px var(--color-primary-text);
+}
+
+
 .kg-callout-card-accent a {
     text-decoration: underline;
 }
