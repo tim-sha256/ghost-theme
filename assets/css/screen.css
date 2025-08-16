@@ -276,10 +276,7 @@ a {
 }
 
 a:hover {
-    opacity: 1;
-    color: var(--color-primary-text);
-    background-color: var(--ghost-accent-color);
-    text-decoration: none;
+    opacity: 0.8;
 }
 
 .gh-button {
@@ -557,6 +554,11 @@ button.gh-form-input {
 
 .gh-navigation :is(.gh-navigation-logo, a:not(.gh-button), .gh-icon-button) {
     color: inherit;
+}
+.gh-navigation a:hover {
+    color: var(--color-primary-text);
+    background-color: var(--ghost-accent-color);
+    text-decoration: none;
 }
 
 .gh-navigation-inner {
