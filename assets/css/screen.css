@@ -534,8 +534,8 @@ button.gh-form-input {
 
 .gh-navigation {
     height: 60px;
-    font-size: 1.5rem;
-    font-weight: 550;
+    font-size: 1.0625em;
+    font-weight: 400;
     background-color: var(--background-color);
     color: var(--color-darker-gray);
 }
