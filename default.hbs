@@ -295,6 +295,8 @@
 {{! Initialize Tocbot after you load the script }}
 {{!lol}}
 <script>
+// Only initialize Tocbot if there's no upgrade CTA
+if (!document.querySelector('.gh-post-upgrade-cta')) {
     tocbot.init({
         // Where to render the table of contents.
         tocSelector: '.gh-toc',
@@ -308,13 +310,19 @@
         scrollSmoothOffset: -60,
         scrollSmooth: true,
         collapseDepth: 2,
-
     });
 
     setTimeout(() => {
         document.querySelectorAll('.gh-toc .is-collapsible')
         .forEach(el => el.classList.add('is-collapsed'));
     }, 0);
+} else {
+    // Hide TOC if upgrade CTA is present
+    const tocElement = document.querySelector('.gh-sidebar');
+    if (tocElement) {
+        tocElement.style.display = 'none';
+    }
+}
 </script>
 
 <script>
