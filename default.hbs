@@ -10,11 +10,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     {{!-- Preload main styles and scripts for better performance --}}
+    <link rel="preload" as="font" href="{{asset "fonts/IosevkaCustom-Regular.woff2"}}" type="font/woff2" crossorigin="anonymous"> 
+    <link rel="preload" as="font" href="{{asset "fonts/IosevkaCustom-Bold.woff2"}}" type="font/woff2" crossorigin="anonymous">
 
-   <style>
+    <style>
         @font-face {
             font-family: 'Iosevka Custom';
-            src: url('/assets/fonts/IosevkaCustom-Regular.woff2') format('woff2');
+            src: url('{{asset "fonts/IosevkaCustom-Regular.woff2"}}') format('woff2');
             font-weight: 400;
             font-style: normal;
             font-display: block;
@@ -23,15 +25,13 @@
         
         @font-face {
             font-family: 'Iosevka Custom';
-            src: url('/assets/fonts/IosevkaCustom-Bold.woff2') format('woff2');
+            src: url('{{asset "fonts/IosevkaCustom-Bold.woff2"}}') format('woff2');
             font-weight: 700;
             font-style: normal;
             font-display: block;
         }
         
     </style>
-    <link rel="preload" as="font" href="{{asset "fonts/IosevkaCustom-Regular.woff2"}}" type="font/woff2" crossorigin="anonymous"> 
-    <link rel="preload" as="font" href="{{asset "fonts/IosevkaCustom-Bold.woff2"}}" type="font/woff2" crossorigin="anonymous">
 
     <link rel="preload" as="style" href="{{asset "built/screen.css"}}">
     <link rel="preload" as="script" href="{{asset "built/source.js"}}">
