@@ -72,7 +72,7 @@ production stylesheet in assets/built/screen.css
     --syntax-string: #78289f;
     --syntax-comment: #608ba6; 
 
-    --font-sans: 'Iosevka Custom', Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    --font-sans: 'Iosevka Custom', -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
     --font-serif: 'Iosevka Custom', "EB Garamond", Georgia, Times, serif;
     --font-serif-alt: 'Iosevka Custom', Georgia, Times, serif;
     --font-mono: 'Iosevka Custom', "JetBrains Mono", Menlo, Consolas, Monaco, "Liberation Mono", "Lucida Console", monospace;    --container-width: 1320px;
