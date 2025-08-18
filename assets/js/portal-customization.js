@@ -26,6 +26,12 @@ function customizePortal() {
             border-radius: 0 !important;
         }
         
+        .gh-portal-products-pricetoggle button,
+        .gh-portal-products-pricetoggle span,
+        .gh-portal-products-pricetoggle * {
+            border-radius: 0 !important;
+        }
+        
         /* Make description look like link */
         .gh-portal-product-description {
             text-decoration: underline !important;
@@ -38,7 +44,7 @@ function customizePortal() {
         .gh-portal-product-description:hover {
             opacity: 1 !important;
             color: var(--color-primary-text) !important;
-            background-color: var(--ghost-accent-color) !important;
+            background-color: #e15600 !important;
             text-decoration: none !important;
         }
     `;
@@ -58,7 +64,7 @@ function customizePortal() {
             if (!desc.dataset.linkified) {
                 desc.dataset.linkified = 'true';
                 desc.addEventListener('click', () => {
-                    window.location.href = '/subscription';
+                    window.parent.location.href = '/subscription';
                 });
             }
         });
