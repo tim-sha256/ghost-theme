@@ -977,6 +977,13 @@ Search                         LOGO                    Login Subscribe
         -webkit-overflow-scrolling: touch;
     }
 
+    /* To place the second ul for paid members in the dropdown menu */
+
+    .is-open#gh-navigation .gh-navigation-menu {
+    flex-direction: column;
+    align-items: center; 
+    }
+
     .is-open#gh-navigation .gh-navigation-menu,
     .is-open#gh-navigation .gh-navigation-actions {
         position: static;
