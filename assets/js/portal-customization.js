@@ -62,7 +62,7 @@ function customizePortal() {
                 });
             }
         });
-    }, 100);
+    }, 10);
 }
 
 // Start when ready
