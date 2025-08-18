@@ -5,20 +5,8 @@ function dropdown(){let r=window.matchMedia("(max-width: 767px)"),a=document.que
         }
         * { 
             font-family: 'Iosevka Custom', monospace !important;
-            border-radius: 0 !important;
         }
         
-        /* Force square buttons with very high specificity */
-        button.gh-portal-btn,
-        .gh-portal-products-pricetoggle button,
-        .gh-portal-products-pricetoggle button[class*="gh-portal"],
-        .gh-portal-products-pricetoggle span[class*="gh-portal"],
-        [class*="gh-portal"][class*="button"],
-        [class*="gh-portal"][class*="btn"] {
-            border-radius: 0 !important;
-            -webkit-border-radius: 0 !important;
-            -moz-border-radius: 0 !important;
-        }
         
         /* Make description look like link */
         .gh-portal-product-description {
