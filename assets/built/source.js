@@ -3,12 +3,14 @@ function dropdown(){let r=window.matchMedia("(max-width: 767px)"),a=document.que
             font-family: 'Iosevka Custom';
             src: url('/assets/fonts/IosevkaCustom-Regular.woff2') format('woff2');
         }
+        /* 
         * { 
             font-family: 'Iosevka Custom', monospace !important;
             border-radius: 0 !important;
         }
+        */
         
-        /* Force square buttons with very high specificity */
+        /* Force square buttons with very high specificity 
         button.gh-portal-btn,
         .gh-portal-products-pricetoggle button,
         .gh-portal-products-pricetoggle button[class*="gh-portal"],
@@ -19,7 +21,8 @@ function dropdown(){let r=window.matchMedia("(max-width: 767px)"),a=document.que
             -webkit-border-radius: 0 !important;
             -moz-border-radius: 0 !important;
         }
-        
+        */
+       
         /* Make description look like link */
         .gh-portal-product-description {
             text-decoration: underline !important;
