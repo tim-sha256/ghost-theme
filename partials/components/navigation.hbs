@@ -20,7 +20,11 @@
         <nav class="gh-navigation-menu">
             {{navigation}}
             {{#if @member.paid}}
-                <a href="/self-hosting">What you paid for</a>
+                <ul class="nav">
+                    <li class="nav-item">
+                        <a href="/self-hosting">what you paid for</a>
+                    </li>
+                </ul>
             {{/if}}
 
             {{#unless @site.members_enabled}}
