@@ -29,12 +29,17 @@ function customizePortal() {
         /* Make description look like link */
         .gh-portal-product-description {
             text-decoration: underline !important;
-            text-decoration-color: var(--color-primary-text) !important;
+            text-decoration-color: var(--ghost-accent-color) !important;
+            text-underline-offset: 2px !important;
+            transition: all 0.2s ease !important;
             cursor: pointer !important;
         }
         
         .gh-portal-product-description:hover {
-            opacity: 0.8 !important;
+            opacity: 1 !important;
+            color: var(--color-primary-text) !important;
+            background-color: var(--ghost-accent-color) !important;
+            text-decoration: none !important;
         }
     `;
     doc.head.appendChild(style);
