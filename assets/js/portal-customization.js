@@ -29,7 +29,7 @@ function customizePortal() {
         /* Make description look like link */
         .gh-portal-product-description {
             text-decoration: underline !important;
-            text-decoration-color: var(--ghost-accent-color) !important;
+            text-decoration-color: #e15600 !important;
             text-underline-offset: 2px !important;
             transition: all 0.2s ease !important;
             cursor: pointer !important;
@@ -48,7 +48,9 @@ function customizePortal() {
     setTimeout(() => {
         // Remove logo
         const logo = doc.querySelector('.gh-portal-signup-logo');
+        const ghostik = doc.querySelector('.gh-portal-powered');
         if (logo) logo.remove();
+        if (ghostik) ghostik.remove();
         
         // Make description clickable
         const descriptions = doc.querySelectorAll('.gh-portal-product-description');
