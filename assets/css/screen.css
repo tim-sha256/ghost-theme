@@ -2276,7 +2276,7 @@ unless a heading is the very first element in the post content */
     margin-top: calc(48px * var(--content-spacing-factor, 1)) !important;
 }
 
-.gh-content > :is blockquote {
+.gh-content > :is(blockquote) {
     position: relative;
     margin-top: calc(12px * var(--content-spacing-factor, 1)) !important;
 }
