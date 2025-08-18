@@ -19,6 +19,10 @@
 
         <nav class="gh-navigation-menu">
             {{navigation}}
+            {{#if @member.paid}}
+                <a href="/self-hosting">What you paid for</a>
+            {{/if}}
+
             {{#unless @site.members_enabled}}
                 {{#match navigationLayout "Stacked"}}
                     {{> "search-toggle"}}
