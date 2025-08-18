@@ -16,8 +16,11 @@ function customizePortal() {
     
     const doc = portalFrame.contentDocument;
     
-    // Check if already customized to prevent duplicate listeners
-    if (doc.getElementById('custom-portal-styles')) return;
+    // Always remove existing styles first to ensure fresh application
+    const existingStyles = doc.getElementById('custom-portal-styles');
+    if (existingStyles) {
+        existingStyles.remove();
+    }
     
     // 1. Add font and remove border radius with higher specificity
     const style = doc.createElement('style');
@@ -70,13 +73,15 @@ function customizePortal() {
         if (logo) logo.style.display = 'none';
         if (ghostik) ghostik.style.display = 'none';
         
-        // Make description clickable - improved approach
+        // Make description clickable - reset linkified status to ensure fresh listeners
         const descriptions = doc.querySelectorAll('.gh-portal-product-description');
         descriptions.forEach(desc => {
-            if (!desc.dataset.linkified) {
-                desc.dataset.linkified = 'true';
-                desc.addEventListener('click', handleDescriptionClick, { once: false });
-            }
+            // Remove existing listeners by cloning the element
+            const newDesc = desc.cloneNode(true);
+            desc.parentNode.replaceChild(newDesc, desc);
+            
+            // Add fresh listener
+            newDesc.addEventListener('click', handleDescriptionClick, { once: false });
         });
     }, 100);
 }
@@ -89,24 +94,13 @@ function handleDescriptionClick(e) {
     if (isNavigating) return;
     isNavigating = true;
     
-    // Use Ghost's built-in portal close method if available
-    if (window.ghost && window.ghost.portal) {
-        window.ghost.portal.close();
-    } else {
-        // Fallback to click close button
-        const portalFrame = document.querySelector('iframe[data-frame="portal-popup"], iframe[title*="portal"]');
-        if (portalFrame?.contentDocument) {
-            const closeBtn = portalFrame.contentDocument.querySelector('.gh-portal-closeicon');
-            if (closeBtn) {
-                closeBtn.click();
-            }
-        }
-    }
+    // Open in new tab to avoid conflicts entirely
+    window.open('/subscription', '_blank');
     
-    // Navigate after a longer delay to ensure portal is fully closed
+    // Reset the flag quickly since we're not navigating away
     setTimeout(() => {
-        window.location.href = '/subscription';
-    }, 300);
+        isNavigating = false;
+    }, 1000);
 }
 
 // Debounced customization function to prevent rapid re-execution
