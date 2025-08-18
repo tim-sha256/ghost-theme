@@ -25,24 +25,36 @@ function customizePortal() {
             font-family: 'Iosevka Custom', monospace !important;
             border-radius: 0 !important;
         }
+        
+        /* Make description look like link */
+        .gh-portal-product-description {
+            text-decoration: underline !important;
+            text-decoration-color: var(--color-primary-text) !important;
+            cursor: pointer !important;
+        }
+        
+        .gh-portal-product-description:hover {
+            opacity: 0.8 !important;
+        }
     `;
     doc.head.appendChild(style);
     
-    // 2. Add "More details" link
+    // 2. Remove logo and make description clickable
     setTimeout(() => {
-        const productsSection = doc.querySelector('.gh-portal-products');
-        const productsGrid = doc.querySelector('.gh-portal-products-grid');
+        // Remove logo
+        const logo = doc.querySelector('.gh-portal-signup-logo');
+        if (logo) logo.remove();
         
-        if (productsSection && productsGrid && !doc.querySelector('.more-details-link')) {
-            const link = doc.createElement('a');
-            link.className = 'more-details-link';
-            link.href = '/subscription';
-            link.target = '_parent';
-            link.textContent = 'More details';
-            link.style.cssText = 'display: block; text-align: center; margin: 15px 0; color: var(--brandcolor); text-decoration: underline;';
-            
-            productsSection.insertBefore(link, productsGrid);
-        }
+        // Make description clickable
+        const descriptions = doc.querySelectorAll('.gh-portal-product-description');
+        descriptions.forEach(desc => {
+            if (!desc.dataset.linkified) {
+                desc.dataset.linkified = 'true';
+                desc.addEventListener('click', () => {
+                    window.location.href = '/subscription';
+                });
+            }
+        });
     }, 100);
 }
 
