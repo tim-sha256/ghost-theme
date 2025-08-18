@@ -1,7 +1,9 @@
 // Save this as /assets/js/portal-customization.js
 
-let customizationApplied = false;
-let isNavigating = false;
+(function() {
+    'use strict';
+    
+    let isNavigating = false;
 
 function customizePortal() {
     // Prevent multiple rapid executions
@@ -32,6 +34,19 @@ function customizePortal() {
         }
         * { 
             font-family: 'Iosevka Custom', monospace !important;
+            border-radius: 0 !important;
+        }
+        
+        /* Force square buttons with very high specificity */
+        button.gh-portal-btn,
+        .gh-portal-products-pricetoggle button,
+        .gh-portal-products-pricetoggle button[class*="gh-portal"],
+        .gh-portal-products-pricetoggle span[class*="gh-portal"],
+        [class*="gh-portal"][class*="button"],
+        [class*="gh-portal"][class*="btn"] {
+            border-radius: 0 !important;
+            -webkit-border-radius: 0 !important;
+            -moz-border-radius: 0 !important;
         }
         
         /* Make description look like link */
@@ -52,25 +67,23 @@ function customizePortal() {
     `;
     doc.head.appendChild(style);
     
-    // 2. Hide logo and make description clickable
-    setTimeout(() => {
-        // Hide logo instead of removing
-        const logo = doc.querySelector('.gh-portal-signup-logo');
-        const ghostik = doc.querySelector('.gh-portal-powered');
-        if (logo) logo.style.display = 'none';
-        if (ghostik) ghostik.style.display = 'none';
+    // 2. Hide logo and make description clickable immediately
+    // Hide logo instead of removing
+    const logo = doc.querySelector('.gh-portal-signup-logo');
+    const ghostik = doc.querySelector('.gh-portal-powered');
+    if (logo) logo.style.display = 'none';
+    if (ghostik) ghostik.style.display = 'none';
+    
+    // Make description clickable - reset linkified status to ensure fresh listeners
+    const descriptions = doc.querySelectorAll('.gh-portal-product-description');
+    descriptions.forEach(desc => {
+        // Remove existing listeners by cloning the element
+        const newDesc = desc.cloneNode(true);
+        desc.parentNode.replaceChild(newDesc, desc);
         
-        // Make description clickable - reset linkified status to ensure fresh listeners
-        const descriptions = doc.querySelectorAll('.gh-portal-product-description');
-        descriptions.forEach(desc => {
-            // Remove existing listeners by cloning the element
-            const newDesc = desc.cloneNode(true);
-            desc.parentNode.replaceChild(newDesc, desc);
-            
-            // Add fresh listener
-            newDesc.addEventListener('click', handleDescriptionClick, { once: false });
-        });
-    }, 100);
+        // Add fresh listener
+        newDesc.addEventListener('click', handleDescriptionClick, { once: false });
+    });
 }
 
 function handleDescriptionClick(e) {
@@ -131,3 +144,5 @@ document.addEventListener('visibilitychange', () => {
         isNavigating = false;
     }
 });
+
+})(); // End of IIFE
