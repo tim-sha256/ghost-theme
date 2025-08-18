@@ -2201,7 +2201,7 @@ Search                         LOGO                    Login Subscribe
 /* 14.2. Page template */
 
 .page-template .gh-article-header {
-    margin-block: 72px 32px;
+    margin-block: 16px 24px;
 }
 
 /* 14.3. Page without header */
@@ -2244,7 +2244,7 @@ headings, text, images and lists. We deal with cards lower down. */
 /* Add back a top margin to all headings,
 unless a heading is the very first element in the post content */
 .gh-content > [id]:not(:first-child) {
-    margin-top: calc(56px * var(--content-spacing-factor, 1));
+    margin-top: calc(24px * var(--content-spacing-factor, 1));
 }
 
 /* Add drop cap setting */
