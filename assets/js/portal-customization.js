@@ -13,7 +13,7 @@ function customizePortal() {
     // Check if already customized
     if (doc.getElementById('custom-portal-styles')) return;
     
-    // 1. Add font and remove border radius
+    // 1. Add font and remove border radius with higher specificity
     const style = doc.createElement('style');
     style.id = 'custom-portal-styles';
     style.textContent = `
@@ -26,10 +26,16 @@ function customizePortal() {
             border-radius: 0 !important;
         }
         
+        /* Force square buttons with very high specificity */
+        button.gh-portal-btn,
         .gh-portal-products-pricetoggle button,
-        .gh-portal-products-pricetoggle span,
-        .gh-portal-products-pricetoggle * {
+        .gh-portal-products-pricetoggle button[class*="gh-portal"],
+        .gh-portal-products-pricetoggle span[class*="gh-portal"],
+        [class*="gh-portal"][class*="button"],
+        [class*="gh-portal"][class*="btn"] {
             border-radius: 0 !important;
+            -webkit-border-radius: 0 !important;
+            -moz-border-radius: 0 !important;
         }
         
         /* Make description look like link */
@@ -58,17 +64,27 @@ function customizePortal() {
         if (logo) logo.remove();
         if (ghostik) ghostik.remove();
         
-        // Make description clickable
+        // Make description clickable - fix the navigation issue
         const descriptions = doc.querySelectorAll('.gh-portal-product-description');
         descriptions.forEach(desc => {
             if (!desc.dataset.linkified) {
                 desc.dataset.linkified = 'true';
-                desc.addEventListener('click', () => {
-                    window.parent.location.href = '/subscription';
+                desc.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    // Close the portal first, then navigate
+                    const closeBtn = doc.querySelector('.gh-portal-closeicon');
+                    if (closeBtn) {
+                        closeBtn.click();
+                    }
+                    // Small delay to let portal close properly
+                    setTimeout(() => {
+                        window.location.href = '/subscription';
+                    }, 100);
                 });
             }
         });
-    }, 10);
+    }, 100);
 }
 
 // Start when ready
