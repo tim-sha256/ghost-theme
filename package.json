@@ -213,5 +213,8 @@
         "extends": [
             "@tryghost:theme"
         ]
+    },
+    "dependencies": {
+        "yarn": "^1.22.22"
     }
 }
