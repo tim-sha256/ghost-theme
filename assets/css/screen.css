@@ -3080,7 +3080,7 @@ figcaption a {
 /* 21.3. Footer signup */
 
 .gh-footer-signup {
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: center;
     padding-bottom: 160px;
